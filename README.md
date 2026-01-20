@@ -14,7 +14,7 @@ Solutions for CodeMash CTF 2026 challenges.
 - CTF - [1](./2026/CTF/solution.md)
 - Dashboard - [1](./2026/Dashboard/solution.md), [2](./2026/Dashboard/solution2.md)
 - LocksportEZ - [1](./2026/LocksportEZ/solution.md)
-- Of Authenticity - [1](./2026/OfAuthenticity/solution.md)
+- Of Authenticity - [1](./2026/OfAuthenticity/solution.md), [2](./2026/OfAuthenticity/solution2.md)
 - Opsomming - [1](./2026/Opsomming/solution.md)
 - RPlace - [1](./2026/RPlace/solution.md)
 - Revoked - [1](./2026/Revoked/solution.md)
