@@ -7,7 +7,7 @@ Solutions for CodeMash CTF 2026 challenges.
 - Background Check - [1](./2026/BackgroundCheck/solution.md), [2](./2026/BackgroundCheck/solution2.md)
 - Name That Animal - [1](./2026/NameThatAnimal/solution.md), [2](./2026/NameThatAnimal/solution2.md)
 - Let it Slide - [1](./2026/LetItSlide/solution.md), [2](./2026/LetItSlide/solution2.md)
-- Blinky - [1](./2026/Blinky/solution.md), [2](./2026/Blinky/solution2.md)
+- Blinky - [1](./2026/Blinky/solution.md), [2](./2026/Blinky/solution2.md), [3](./2026/Blinky/solution3.md)
 - Choose Wisely - [1](./2026/ChooseWisely/solution.md), [2](./2026/ChooseWisely/solution2.md)
 - Inversion Therapy - [1](./2026/InversionTherapy/solution.md), [2](./2026/InversionTherapy/solution2.md)
 - Monky Business - [1](./2026/MonkyBusiness/solution.md), [2](./2026/MonkyBusiness/solution2.md)
