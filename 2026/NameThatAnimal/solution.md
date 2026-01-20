@@ -7,7 +7,7 @@
 
 The link shows you a picture of an elephant and there is a simple form where all you have to do is type in the name of the animal. If you submit the name of the animal, you get the flag.
 
-![Name that animal](namethatanimal.png)
+![Name that animal](photos/namethatanimal.png)
 
 The problem is that the text box only accepts 5 characters. No matter what you try to type in, you get an error message:
 
@@ -15,7 +15,7 @@ The problem is that the text box only accepts 5 characters. No matter what you t
 
 You need to figure out a different way to submit the name. If you review the network traffic, you will see that the form is submitting a POST request to the server:
 
-![POST](request.png)
+![POST](photos/request.png)
 
  If you recreate this request with your favorite HTTP client, you can submit the name of the animal and get the flag. This is a classic case of trusting the front end to enforce security.
 
@@ -39,4 +39,4 @@ value=Elephant
 
 > Insomnia example:
 
-![insomnia](insomnia.png)
+![insomnia](photos/insomnia.png)

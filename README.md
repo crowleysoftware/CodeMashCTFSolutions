@@ -5,7 +5,7 @@ Solutions for CodeMash CTF 2026 challenges.
 - Cheat to Win - [1](./2026/CheatToWin/solution.md), [2](./2026/CheatToWin/solution2.md), [3](./2026/CheatToWin/solution3.md)
 - Crossword - [1](./2026/Crossword/solution.md), [2](./2026/Crossword/solution2.md), [3](./2026/Crossword/solution3.md)
 - Background Check - [1](./2026/BackgroundCheck/solution.md), [2](./2026/BackgroundCheck/solution2.md), [3](./2026/BackgroundCheck/solution3.md)
-- Name That Animal - [1](./2026/NameThatAnimal/solution.md), [2](./2026/NameThatAnimal/solution2.md)
+- Name That Animal - [1](./2026/NameThatAnimal/solution.md), [2](./2026/NameThatAnimal/solution2.md), [3](./2026/NameThatAnimal/solution3.md)
 - Let it Slide - [1](./2026/LetItSlide/solution.md), [2](./2026/LetItSlide/solution2.md), [3](./2026/LetItSlide/solution3.md)
 - Blinky - [1](./2026/Blinky/solution.md), [2](./2026/Blinky/solution2.md), [3](./2026/Blinky/solution3.md)
 - Choose Wisely - [1](./2026/ChooseWisely/solution.md), [2](./2026/ChooseWisely/solution2.md), [3](./2026/ChooseWisely/solution3.md)
