@@ -12,7 +12,7 @@ Solutions for CodeMash CTF 2026 challenges.
 - Inversion Therapy - [1](./2026/InversionTherapy/solution.md), [2](./2026/InversionTherapy/solution2.md), [3](./2026/InversionTherapy/solution3.md)
 - Monky Business - [1](./2026/MonkyBusiness/solution.md), [2](./2026/MonkyBusiness/solution2.md), [3](./2026/MonkyBusiness/solution3.md)
 - CTF - [1](./2026/CTF/solution.md)
-- Dashboard - [1](./2026/Dashboard/solution.md)
+- Dashboard - [1](./2026/Dashboard/solution.md), [2](./2026/Dashboard/solution2.md)
 - LocksportEZ - [1](./2026/LocksportEZ/solution.md)
 - Of Authenticity - [1](./2026/OfAuthenticity/solution.md)
 - Opsomming - [1](./2026/Opsomming/solution.md)
