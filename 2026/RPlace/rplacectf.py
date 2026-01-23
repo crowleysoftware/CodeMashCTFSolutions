@@ -5,6 +5,7 @@ Continuously monitors and maintains your image on the canvas.
 """
 
 import math
+import random
 import requests
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from typing import List, Tuple, Dict, Any
@@ -327,6 +328,11 @@ def main():
         default=LOOP_DELAY,
         help=f"Delay between iterations in seconds (default: {LOOP_DELAY})"
     )
+    parser.add_argument(
+        "--random", "-r",
+        action="store_true",
+        help="Randomize the x/y starting position on each loop iteration"
+    )
     args = parser.parse_args()
 
     # Validate arguments
@@ -419,15 +425,9 @@ def main():
             if not args.tile:
                 print(f"Created {repeat_x}x{repeat_y} grid of copies")
 
-        # Determine background color: explicit --background, or fallback to --transparency
-        bg_color_hex = args.background
-        if bg_color_hex is None and args.transparency is not None:
-            bg_color_hex = args.transparency
-            print(f"Using transparency color for letterbox: #{bg_color_hex.lstrip('#').lower()}")
-
-        # Add letterbox pixels if background color is specified
-        if bg_color_hex is not None and not args.stretch:
-            bg_hex = bg_color_hex.lstrip('#').lower()
+        # Add letterbox pixels if background color is explicitly specified
+        if args.background is not None and not args.stretch:
+            bg_hex = args.background.lstrip('#').lower()
             if len(bg_hex) != 6:
                 parser.error("Background color must be a 6-character hex code (e.g., '000000')")
             print(f"Filling letterbox with #{bg_hex}")
@@ -440,11 +440,30 @@ def main():
 
     TARGET_PIXELS = list(PIXEL_COLORS.keys())
 
+    # Store base pixel colors for random mode (colors relative to 0,0 origin)
+    BASE_PIXEL_COLORS = {}
+    img_width = 0
+    img_height = 0
+    if args.random and not args.color:
+        # Calculate base colors relative to image origin
+        min_x = min(x for x, y in PIXEL_COLORS.keys())
+        min_y = min(y for x, y in PIXEL_COLORS.keys())
+        max_x = max(x for x, y in PIXEL_COLORS.keys())
+        max_y = max(y for x, y in PIXEL_COLORS.keys())
+        img_width = max_x - min_x + 1
+        img_height = max_y - min_y + 1
+        BASE_PIXEL_COLORS = {
+            (x - min_x, y - min_y): color
+            for (x, y), color in PIXEL_COLORS.items()
+        }
+
     print(f"R/Place CTF Canvas Maintainer")
     print(f"Source: {source_desc}")
     print(f"Monitoring {len(TARGET_PIXELS)} pixels")
     print(f"Parallel threads: {args.threads}")
     print(f"Loop delay: {args.delay}s")
+    if args.random:
+        print(f"Random mode: enabled (randomizing position each iteration)")
     print("=" * 80)
     print("Press Ctrl+C to stop\n")
 
@@ -454,6 +473,23 @@ def main():
         while True:
             iteration += 1
             print(f"\n[Iteration {iteration}] {time.strftime('%H:%M:%S')}")
+
+            # Randomize position if random mode is enabled
+            if args.random and BASE_PIXEL_COLORS:
+                # Calculate valid random position range
+                max_start_x = CANVAS_WIDTH - img_width
+                max_start_y = CANVAS_HEIGHT - img_height
+                rand_x = random.randint(0, max(0, max_start_x))
+                rand_y = random.randint(0, max(0, max_start_y))
+                print(f"Random position: ({rand_x}, {rand_y})")
+
+                # Recalculate pixel positions with new offset
+                PIXEL_COLORS = {
+                    (x + rand_x, y + rand_y): color
+                    for (x, y), color in BASE_PIXEL_COLORS.items()
+                    if 0 <= x + rand_x < CANVAS_WIDTH and 0 <= y + rand_y < CANVAS_HEIGHT
+                }
+                TARGET_PIXELS = list(PIXEL_COLORS.keys())
 
             # Get current canvas state
             print("Fetching canvas state...", end=" ")
